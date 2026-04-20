@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<header class="header-movil"> 
+  </header>
+
+<div class="poema-contenedor">
+  </div>
 
 <title>Web 65</title>
 
@@ -210,40 +215,43 @@ h1{
 }
 
 /* Solo se activará en pantallas menores a 768px (Celulares) */
-@media (max-width: 768px) {
-    
-    /* 1. Forzar que el encabezado use todo el ancho en el móvil */
-    .header, .main-header, header { 
-        width: 100vw !important; /* Usa el 100% del ancho de la ventana */
-        margin-left: calc(-50vw + 50%) !important; /* Truco para romper márgenes del padre */
-        left: 0;
-        right: 0;
-        padding-left: 0;
-        padding-right: 0;
+@media screen and (max-width: 480px) {
+    /* FUERZA EL ENCABEZADO A TOCAR LOS BORDES */
+    .header-movil {
+        width: 100vw !important;
+        position: relative !important;
+        left: 50% !important;
+        right: 50% !important;
+        margin-left: -50vw !important;
+        margin-right: -50vw !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        box-sizing: border-box !important;
+        display: block !important;
     }
 
-    /* 2. Ordenar el texto del poema para que no se amontone */
-    .poema, .poem-content, #poema {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 0 20px; /* Evita que el texto toque los bordes del cel */
+    /* ORDENA EL TEXTO DEL POEMA */
+    .poema-contenedor {
+        width: 90% !important; /* Deja un pequeño margen para que no toque el borde */
+        margin: 20px auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
     }
 
-    /* 3. Ajuste de párrafos para que cada verso respire */
-    .poema p, .poem-content p {
-        width: 100%;
-        margin-bottom: 8px; /* Espacio entre líneas */
-        font-size: 16px;    /* Tamaño cómodo para leer en mano */
+    .poema-contenedor p {
+        width: 100% !important;
+        margin-bottom: 12px !important;
+        white-space: normal !important; /* Evita que el texto se amontone en una sola línea */
+        overflow-wrap: break-word !important;
     }
 
-    /* 4. Ajuste de las imágenes (las 4 tarjetas verticales) */
-    .cards-container, .grid-imagenes {
-        display: flex;
-        overflow-x: auto; /* Permite deslizar si no caben */
-        gap: 10px;
-        padding: 10px;
+    /* EVITA EL MOVIMIENTO LATERAL DEL CELULAR */
+    html, body {
+        overflow-x: hidden !important;
+        width: 100% !important;
+        position: relative !important;
     }
 }
 </style>
@@ -324,7 +332,19 @@ de esas personas que no necesitan fingir ni subirse.
 <tr>
 <td class="info">
 <h3>poema</h3>
-<p>Rizo’ suelto’, como rutas que no se repiten, cada curva con historia, de esas que no se escriben. Con esa risa que cambia todo el ambiente, como luz silenciosa que se queda en la mente. Fuerte sin ruido, sin tener que explicarlo, de esas presencias que no necesitan forzarlo. Todo en ti refleja equilibrio y certeza, como quien ya entendió su propia firmeza. Y aunque lo tenga claro, lo digo de frente, hubo fallas mías que pesan más de lo aparente. Perdón si alguna vez no estuve a la altura, si alteré la calma que llevas tan pura. No es discurso vacío ni palabras al viento, es reconocer errores con todo el peso dentro. Porque gente como tú no se cruza dos veces, y menos con esa forma en que el mundo lo meces. No hablo de amor, hablo de algo más sincero, de valorar lo real, aunque llegue primero el error. De aprender en silencio lo que antes no veía, y entender lo importante cuando ya se sentía. Rizo’ con historia, carácter definido, de esas personas que dejan algo sin hacer ruido. Y si alguna vez fallé, queda claro hoy el porqué: no fue falta de intención… fue no saber hacerlo bien.</p>
+<p>Rizo’ suelto’, como rutas que no se repiten, cada curva con historia,
+ de esas que no se escriben. Con esa risa que cambia todo el ambiente,
+como luz silenciosa que se queda en la mente. Fuerte sin ruido, sin tener que explicarlo,
+de esas presencias que no necesitan forzarlo. Todo en ti refleja equilibrio y certeza,
+como quien ya entendió su propia firmeza. Y aunque lo tenga claro, lo digo de frente, 
+hubo fallas mías que pesan más de lo aparente. Perdón si alguna vez no estuve a la altura,
+si alteré la calma que llevas tan pura. No es discurso vacío ni palabras al viento,
+es reconocer errores con todo el peso dentro. Porque gente como tú no se cruza dos veces,
+ y menos con esa forma en que el mundo lo meces. No hablo de amor, hablo de algo más sincero, 
+de valorar lo real, aunque llegue primero el error. De aprender en silencio lo que antes no veía,
+y entender lo importante cuando ya se sentía. Rizo’ con historia, carácter definido,
+de esas personas que dejan algo sin hacer ruido. Y si alguna vez fallé, queda claro hoy el porqué:
+no fue falta de intención… fue no saber hacerlo bien.</p>
 </td>
 
 <td>
