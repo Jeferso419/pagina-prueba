@@ -209,7 +209,43 @@ h1{
     color:#ffcc00;
 }
 
+/* Solo se activará en pantallas menores a 768px (Celulares) */
+@media (max-width: 768px) {
+    
+    /* 1. Forzar que el encabezado use todo el ancho en el móvil */
+    .header, .main-header, header { 
+        width: 100vw !important; /* Usa el 100% del ancho de la ventana */
+        margin-left: calc(-50vw + 50%) !important; /* Truco para romper márgenes del padre */
+        left: 0;
+        right: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
 
+    /* 2. Ordenar el texto del poema para que no se amontone */
+    .poema, .poem-content, #poema {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 20px; /* Evita que el texto toque los bordes del cel */
+    }
+
+    /* 3. Ajuste de párrafos para que cada verso respire */
+    .poema p, .poem-content p {
+        width: 100%;
+        margin-bottom: 8px; /* Espacio entre líneas */
+        font-size: 16px;    /* Tamaño cómodo para leer en mano */
+    }
+
+    /* 4. Ajuste de las imágenes (las 4 tarjetas verticales) */
+    .cards-container, .grid-imagenes {
+        display: flex;
+        overflow-x: auto; /* Permite deslizar si no caben */
+        gap: 10px;
+        padding: 10px;
+    }
+}
 </style>
 </head>
 
